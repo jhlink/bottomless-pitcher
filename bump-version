@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+version="$1"
+IFS=. read -r major minor build <<< "$version"
+
+sed -i 's/\(#define BOT_OPAL_VERSION_MAJOR\).*/\1 '$major'/' bottomlessopal/bottomlessopal.ino
+sed -i 's/\(#define BOT_OPAL_VERSION_MINOR\).*/\1 '$minor'/' bottomlessopal/bottomlessopal.ino
+sed -i 's/\(#define BOT_OPAL_VERSION_PATCH\).*/\1 '$build'/' bottomlessopal/bottomlessopal.ino
